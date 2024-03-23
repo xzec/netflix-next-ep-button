@@ -1,24 +1,20 @@
 import { useEffect, type FC, useCallback, useRef } from 'react'
 import PlayIcon from '~/icons/play-icon.tsx'
-import { animate, motion, useMotionValue } from 'framer-motion'
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
 
 const NetflixNextEpisodeButton: FC = () => {
-  const x = useMotionValue<string>('-100%')
-  const backgroundPositionX = useMotionValue<string>('100%')
+  const value = useMotionValue(0)
+  const x = useTransform(value, [0, 100], ['-101%', '0%'])
+  const backgroundPositionX = useTransform(value, [0, 100], ['100%', '0%'])
   const init = useRef(false)
 
   const startAnimation = useCallback(() => {
-    animate(x, ['-100%', '0%'], {
+    animate(value, [0, 100], {
       duration: 3,
       ease: 'linear',
-      delay: x.isAnimating() ? 0.25 : 0,
+      delay: value.isAnimating() ? 0.25 : 0,
     })
-    animate(backgroundPositionX, ['100%', '0%'], {
-      duration: 3,
-      ease: 'linear',
-      delay: backgroundPositionX.isAnimating() ? 0.25 : 0,
-    })
-  }, [x, backgroundPositionX])
+  }, [value])
 
   useEffect(() => {
     if (!init.current) {
