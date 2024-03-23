@@ -11,4 +11,7 @@
   body {
     @apply text-zinc-900 dark:text-zinc-100;
   }
+  :focus-visible {
+    @apply ring-primary outline-none ring-2 ring-offset-2 ring-offset-zinc-100 dark:ring-offset-zinc-900;
+  }
 }
