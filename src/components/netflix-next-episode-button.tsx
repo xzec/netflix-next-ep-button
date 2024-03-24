@@ -91,7 +91,7 @@ const NetflixNextEpisodeButton: FC = () => {
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="h-full w-full space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-bold text-transparent"
+            className="h-full w-full space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
             <span className="mr-5">▶</span>
@@ -101,7 +101,7 @@ const NetflixNextEpisodeButton: FC = () => {
         <p className="text-xs">
           2a. Two gradients of twice the length of the button, with sharp color
           edge in the middle. One for text with{' '}
-          <code>background-clip: text;</code> and one for background.
+          <code>background-clip: text;</code> and one for the button background.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
@@ -111,7 +111,7 @@ const NetflixNextEpisodeButton: FC = () => {
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="h-full w-full space-x-5 bg-gradient-to-r from-orange-600 from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-bold text-transparent"
+            className="h-full w-full space-x-5 bg-gradient-to-r from-orange-600 from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
             <span className="mr-5">▶</span>
@@ -119,8 +119,27 @@ const NetflixNextEpisodeButton: FC = () => {
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          2b. Allows for better control over the color, but doesn't support
-          icons. The leading "play" icon is actually a Unicode character.
+          2b. Allows for arbitrary colors, but doesn't support SVG. The leading
+          "play" icon is a Unicode character in this case.
+        </p>
+      </div>
+      <div className="flex flex-col items-start gap-2">
+        <motion.button
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-white from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          onClick={startAnimation}
+          style={{ backgroundPositionX }}
+        >
+          <motion.div
+            className="inline-flex h-full w-full items-center space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            style={{ backgroundPositionX }}
+          >
+            <NetflixPlayIcon className="mr-5 text-white	mix-blend-difference" />
+            Next episode
+          </motion.div>
+        </motion.button>
+        <p className="text-xs">
+          3. Similar technique as 2nd approach, but with mix-blend-difference on
+          the SVG. Doesn't allow for arbitrary colors of SVG.
         </p>
       </div>
     </div>
