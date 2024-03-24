@@ -8,11 +8,11 @@ interface SliderProps extends ComponentProps<typeof RadixSlider.Root> {
 const Slider: FC<SliderProps> = ({ ariaLabelThumb, ...rest }) => {
   return (
     <RadixSlider.Root
-      className="relative flex h-5 touch-none select-none items-center"
+      className="relative flex h-5 w-full touch-none select-none items-center"
       {...rest}
     >
-      <RadixSlider.Track className="relative h-[3px] grow rounded-full bg-zinc-800">
-        <RadixSlider.Range className="absolute h-full rounded-full bg-white" />
+      <RadixSlider.Track className="relative h-[3px] grow rounded-full bg-zinc-200 dark:bg-zinc-800">
+        <RadixSlider.Range className="absolute h-full rounded-full bg-black dark:bg-white" />
       </RadixSlider.Track>
       <RadixSlider.Thumb
         className="block h-5 w-5 rounded-[10px] bg-white shadow-[0_2px_10px] shadow-zinc-600"
