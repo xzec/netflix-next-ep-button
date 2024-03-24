@@ -12,7 +12,7 @@
     @apply text-zinc-900 dark:text-zinc-100;
   }
   code {
-    @apply bg-primary/20 border border-primary/40 p-[0.1em] leading-[1.8em] rounded
+    @apply bg-primary/20 border-primary/40 rounded border p-[0.1em] leading-[1.8em];
   }
   :focus-visible {
     @apply ring-primary outline-none ring-2 ring-offset-2 ring-offset-zinc-100 dark:ring-offset-zinc-900;

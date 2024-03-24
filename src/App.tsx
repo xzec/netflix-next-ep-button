@@ -5,7 +5,7 @@ import NetflixNextEpisodeButton from '~/components/netflix-next-episode-button.t
 const App: FC = () => {
   return (
     <div className="flex h-[100dvh] w-[100dvw] items-center justify-center overflow-hidden bg-white dark:bg-black">
-      <ModeToggle className="fixed right-4 top-4" />
+      <ModeToggle className="fixed right-2 top-2" />
       <NetflixNextEpisodeButton />
     </div>
   )

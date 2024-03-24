@@ -1,4 +1,7 @@
 import { useEffect, type FC, useState } from 'react'
+import SunIcon from '~/icons/sun-icon.tsx'
+import MoonIcon from '~/icons/moon-icon.tsx'
+import { cn } from '~/utils/cn.ts'
 
 type Mode = 'light' | 'dark'
 
@@ -25,13 +28,19 @@ const ModeToggle: FC<ModeToggleProps> = ({ className }) => {
   }, [mode])
 
   return (
-    <div className={className}>
-      <button
-        onClick={() => setMode((prev) => (prev === 'light' ? 'dark' : 'light'))}
-      >
-        {mode === 'light' ? 'dark' : 'light'}
-      </button>
-    </div>
+    <button
+      className={cn(
+        'rounded-lg border border-zinc-800 p-1 hover:bg-zinc-100 dark:border-zinc-300 dark:hover:bg-zinc-900',
+        className
+      )}
+      onClick={() => setMode((prev) => (prev === 'light' ? 'dark' : 'light'))}
+    >
+      {mode === 'light' ? (
+        <SunIcon className="text-2xl text-amber-500" />
+      ) : (
+        <MoonIcon className="text-2xl text-blue-600" />
+      )}
+    </button>
   )
 }
 
