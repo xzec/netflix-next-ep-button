@@ -138,8 +138,9 @@ const NetflixNextEpisodeButton: FC = () => {
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          3. Similar technique as 2nd approach, but with mix-blend-difference on
-          the SVG. Doesn't allow for arbitrary colors of SVG.
+          3. Similar technique as 2nd approach, but with{' '}
+          <code>mix-blend-mode: difference;</code> on the SVG. Doesn't allow for
+          arbitrary colors of SVG.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
