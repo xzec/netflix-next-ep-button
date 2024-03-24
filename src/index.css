@@ -18,3 +18,13 @@
     @apply ring-primary outline-none ring-2 ring-offset-2 ring-offset-zinc-100 dark:ring-offset-zinc-900;
   }
 }
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 700,
+      'GRAD' 200,
+      'opsz' 24;
+  }
+}

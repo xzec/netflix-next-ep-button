@@ -22,7 +22,7 @@ const NetflixNextEpisodeButton: FC = () => {
 
   const startAnimation = useCallback(() => {
     animate(loading, [0, 100], {
-      duration: 3,
+      duration: 5,
       ease: 'linear',
     })
   }, [loading])
@@ -140,6 +140,28 @@ const NetflixNextEpisodeButton: FC = () => {
         <p className="text-xs">
           3. Similar technique as 2nd approach, but with mix-blend-difference on
           the SVG. Doesn't allow for arbitrary colors of SVG.
+        </p>
+      </div>
+      <div className="flex flex-col items-start gap-2">
+        <motion.button
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-white from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          onClick={startAnimation}
+          style={{ backgroundPositionX }}
+        >
+          <motion.div
+            className="flex h-full w-full items-center space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            style={{ backgroundPositionX }}
+          >
+            <span className="material-symbols-outlined mr-5 max-w-[23px] leading-tight tracking-tighter">
+              play_arrow
+            </span>
+            Next episode
+          </motion.div>
+        </motion.button>
+        <p className="text-xs">
+          4. The "play" icon is delivered as font icon in this case, so{' '}
+          <code>background-clip: text;</code> has desired effect on it. Allows
+          for arbitrary colors, but font icons come with their pitfalls.
         </p>
       </div>
     </div>
