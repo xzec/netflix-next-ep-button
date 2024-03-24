@@ -79,8 +79,9 @@ const NetflixNextEpisodeButton: FC = () => {
           />
         </button>
         <p className="text-xs">
-          1. overlay with <code>backdrop-filter: invert(100%);</code>. Does work
-          on SVG too but has limited color capabilities.
+          1. Absolutely positioned overlay with a{' '}
+          <code>backdrop-filter: invert(100%);</code>. Does work on SVG too but
+          has limited color capabilities.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
