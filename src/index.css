@@ -9,7 +9,7 @@
 
 @layer base {
   body {
-    @apply text-zinc-900 dark:text-zinc-100;
+    @apply bg-white text-zinc-900 dark:bg-black dark:text-zinc-100 transition-colors;
   }
   code {
     @apply bg-primary/20 border-primary/40 rounded border p-[0.1em] leading-[1.8em];
