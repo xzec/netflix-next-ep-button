@@ -1,13 +1,7 @@
-import { useEffect, type FC, useCallback, useRef, useState } from 'react'
-import NetflixPlayIcon from '~/icons/netflix-play-icon.tsx'
-import {
-  animate,
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useTransform,
-} from 'framer-motion'
+import { animate, motion, useMotionValue, useMotionValueEvent, useTransform } from 'framer-motion'
+import { type FC, useCallback, useEffect, useRef, useState } from 'react'
 import Slider from '~/components/slider.tsx'
+import NetflixPlayIcon from '~/icons/netflix-play-icon.tsx'
 import PauseIcon from '~/icons/pause-icon.tsx'
 import PlayIcon from '~/icons/play-icon.tsx'
 
@@ -48,50 +42,40 @@ const NetflixNextEpisodeButton: FC = () => {
   return (
     <div className="max-w-64 space-y-8">
       <div className="relative w-full">
-        <button
-          className="absolute -left-4 top-1/2 -translate-x-full -translate-y-1/2"
-          onClick={toggleAnimation}
-        >
+        <button className="-left-4 -translate-x-full -translate-y-1/2 absolute top-1/2" onClick={toggleAnimation}>
           {!loading.animation || loading.animation.state === 'paused' ? (
             <PlayIcon className="h-6 w-6" />
           ) : (
             <PauseIcon className="h-6 w-6" />
           )}
         </button>
-        <Slider
-          defaultValue={[0]}
-          max={100}
-          step={1}
-          value={[value]}
-          onValueChange={(val) => loading.jump(val[0]!)}
-        />
+        <Slider defaultValue={[0]} max={100} step={1} value={[value]} onValueChange={(val) => loading.jump(val[0]!)} />
       </div>
       <div className="flex flex-col items-start gap-2">
         <button
-          className="relative flex items-center justify-center overflow-hidden rounded-md bg-neutral-800 px-6 py-2 text-2xl font-medium text-white"
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-neutral-800 px-6 py-2 font-medium text-2xl text-white"
           onClick={startAnimation}
         >
           <NetflixPlayIcon className="mr-5" />
           Next episode
           <motion.div
             style={{ x: positionX }}
-            className="pointer-events-none absolute inset-0 h-full w-full -translate-x-full backdrop-invert"
+            className="-translate-x-full pointer-events-none absolute inset-0 h-full w-full backdrop-invert"
           />
         </button>
         <p className="text-xs">
-          1. Absolutely positioned overlay with a{' '}
-          <code>backdrop-filter: invert(100%);</code>. Does work on SVG too but
+          1. Absolutely positioned overlay with a <code>backdrop-filter: invert(100%);</code>. Does work on SVG too but
           has limited color capabilities.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
         <motion.button
-          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-white from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-[length:200%_200%] bg-gradient-to-r from-50% from-white to-50% to-neutral-500 text-2xl"
           onClick={startAnimation}
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="h-full w-full space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            className="h-full w-full space-x-5 bg-[length:200%_200%] bg-gradient-to-r from-50% from-black to-50% to-white bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
             <span className="mr-5">▶</span>
@@ -99,19 +83,18 @@ const NetflixNextEpisodeButton: FC = () => {
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          2a. Two gradients of twice the length of the button, with sharp color
-          edge in the middle. One for text with{' '}
+          2a. Two gradients of twice the length of the button, with sharp color edge in the middle. One for text with{' '}
           <code>background-clip: text;</code> and one for the button background.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
         <motion.button
-          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-blue-600 from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-[length:200%_200%] bg-gradient-to-r from-50% from-blue-600 to-50% to-neutral-500 text-2xl"
           onClick={startAnimation}
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="h-full w-full space-x-5 bg-gradient-to-r from-orange-600 from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            className="h-full w-full space-x-5 bg-[length:200%_200%] bg-gradient-to-r from-50% from-orange-600 to-50% to-white bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
             <span className="mr-5">▶</span>
@@ -119,38 +102,37 @@ const NetflixNextEpisodeButton: FC = () => {
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          2b. Allows for arbitrary colors, but doesn't support SVG. The leading
-          "play" icon is a Unicode character in this case.
+          2b. Allows for arbitrary colors, but doesn't support SVG. The leading "play" icon is a Unicode character in
+          this case.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
         <motion.button
-          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-white from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-[length:200%_200%] bg-gradient-to-r from-50% from-white to-50% to-neutral-500 text-2xl"
           onClick={startAnimation}
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="inline-flex h-full w-full items-center space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            className="inline-flex h-full w-full items-center space-x-5 bg-[length:200%_200%] bg-gradient-to-r from-50% from-black to-50% to-white bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
-            <NetflixPlayIcon className="mr-5 text-white	mix-blend-difference" />
+            <NetflixPlayIcon className="mr-5 text-white mix-blend-difference" />
             Next episode
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          3. Similar technique as 2nd approach, but with{' '}
-          <code>mix-blend-mode: difference;</code> on the SVG. Doesn't allow for
-          arbitrary colors of SVG.
+          3. Similar technique as 2nd approach, but with <code>mix-blend-mode: difference;</code> on the SVG. Doesn't
+          allow for arbitrary colors of SVG.
         </p>
       </div>
       <div className="flex flex-col items-start gap-2">
         <motion.button
-          className="relative flex items-center justify-center overflow-hidden rounded-md bg-gradient-to-r from-white from-50% to-neutral-500 to-50% bg-[length:200%_200%] text-2xl"
+          className="relative flex items-center justify-center overflow-hidden rounded-md bg-[length:200%_200%] bg-gradient-to-r from-50% from-white to-50% to-neutral-500 text-2xl"
           onClick={startAnimation}
           style={{ backgroundPositionX }}
         >
           <motion.div
-            className="flex h-full w-full items-center space-x-5 bg-gradient-to-r from-black from-50% to-white to-50% bg-[length:200%_200%] bg-clip-text px-6 py-2 font-semibold text-transparent"
+            className="flex h-full w-full items-center space-x-5 bg-[length:200%_200%] bg-gradient-to-r from-50% from-black to-50% to-white bg-clip-text px-6 py-2 font-semibold text-transparent"
             style={{ backgroundPositionX }}
           >
             <span className="material-symbols-outlined mr-5 max-w-[23px] leading-tight tracking-tighter">
@@ -160,9 +142,8 @@ const NetflixNextEpisodeButton: FC = () => {
           </motion.div>
         </motion.button>
         <p className="text-xs">
-          4. The "play" icon is delivered as font icon in this case, so{' '}
-          <code>background-clip: text;</code> has desired effect on it. Allows
-          for arbitrary colors, but font icons come with their pitfalls.
+          4. The "play" icon is delivered as font icon in this case, so <code>background-clip: text;</code> has desired
+          effect on it. Allows for arbitrary colors, but font icons come with their pitfalls.
         </p>
       </div>
     </div>

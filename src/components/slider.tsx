@@ -1,5 +1,5 @@
-import { ComponentProps, type FC } from 'react'
 import * as RadixSlider from '@radix-ui/react-slider'
+import type { ComponentProps, FC } from 'react'
 
 interface SliderProps extends ComponentProps<typeof RadixSlider.Root> {
   ariaLabelThumb?: string
@@ -7,10 +7,7 @@ interface SliderProps extends ComponentProps<typeof RadixSlider.Root> {
 
 const Slider: FC<SliderProps> = ({ ariaLabelThumb, ...rest }) => {
   return (
-    <RadixSlider.Root
-      className="relative flex h-5 w-full touch-none select-none items-center"
-      {...rest}
-    >
+    <RadixSlider.Root className="relative flex h-5 w-full touch-none select-none items-center" {...rest}>
       <RadixSlider.Track className="relative h-[5px] grow cursor-pointer rounded-full bg-zinc-200 transition-colors dark:bg-zinc-800">
         <RadixSlider.Range className="absolute h-full rounded-full bg-black dark:bg-white" />
       </RadixSlider.Track>
