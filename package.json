@@ -1,12 +1,13 @@
 {
-  "name": "tailwind-pg",
-  "private": true,
-  "version": "0.0.0",
+  "name": "netflix-next-ep-button",
+  "version": "1.0.0",
+  "license": "MIT",
+  "packageManager": "pnpm@9.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "start": "pnpm run build && vite preview"
   },
   "dependencies": {
     "@radix-ui/react-slider": "^1.2.0",
