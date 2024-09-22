@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# Netflix "Next Episode" button
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Running example](./showcase.gif)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project explores how the Netflix "Next Episode" button animation could be created. The animation features a smooth color inversion effect that transitions from left to right, lasting 5 seconds. Several techniques were explored, including `backdrop-filter`, gradient overlays, `mix-blend-mode`, and font icons. Each method has its own strengths and limitations in terms of color flexibility and compatibility with different icon formats.
 
-## Expanding the ESLint configuration
+## Try it out
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```shell
+pnpm i
+pnpm start
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+And that’s it, just a fun experiment to try some animation tricks.
