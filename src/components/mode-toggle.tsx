@@ -37,7 +37,7 @@ const ModeToggle: FC<ModeToggleProps> = ({ className }) => {
   return (
     <button
       className={cn(
-        'h-[42px] w-[42px] overflow-hidden rounded-lg border border-zinc-800 hover:bg-zinc-100 dark:border-zinc-300 dark:hover:bg-zinc-900',
+        'h-[42px] w-[42px] overflow-hidden rounded-lg border border-zinc-800 bg-zinc-200 hover:bg-zinc-300 dark:border-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700',
         className,
       )}
       onClick={() => setMode((prev) => (prev === 'light' ? 'dark' : 'light'))}
